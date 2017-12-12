@@ -40,17 +40,49 @@ public:
 			current = current->next;
 		}
 
-		node *a = new node;
-		a = head;
-	
-		while (a->next != NULL)
-		{
-			cout << a->data << "   ";
-			a = a->next;
 
+	}
+
+	void remove_node(int n)
+	{
+		node *prev = head;
+		node *curr = head;
+		while (prev->next != NULL)
+		{
+			if (curr->data == n)
+			{
+				prev->next = curr->next;
+				return;
+			}
+			curr = curr->next;
+			if (curr == prev)
+			{
+				curr = curr->next;
+			}
+			else
+			{
+				curr = curr->next;
+				prev = prev->next;
+			}
 		}
+	}
+
+
+	void print_list()
+	{
+		node *tmp = new node;
+		tmp = head;
+
+		while (tmp != NULL)
+		{
+			cout << tmp->data << "   ";
+			tmp = tmp->next;
+		}
+
 		cout << endl;
 	}
+
+
 };
 
 int main()
@@ -59,7 +91,7 @@ int main()
 	ll.add_node(1);
 	ll.add_node(5);
 	ll.add_node(9);
-
+	ll.print_list;
 
 
 
